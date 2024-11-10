@@ -5,18 +5,251 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:id="@+id/textTitle"
+        android:layout_width="279dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/belgiano"
+        android:text="MIS RECETAS"
+        android:textColor="#313030"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="338dp"
+        android:layout_height="563dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textTitle">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#407656"
+            app:columnCount="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            app:layout_constraintVertical_bias="0.0"
+            app:rowOrderPreserved="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage1"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe1"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage2"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe2"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage3"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe3"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage4"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe4"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage5"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe5"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage6"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe6"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage7"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe7"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage8"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe8"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="#FF0303"
+                android:backgroundTint="#FF0202"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textImage9"
+                    android:layout_width="85dp"
+                    android:layout_height="66dp"
+                    android:text="IMAGEN" />
+
+                <TextView
+                    android:id="@+id/textTitleRecipe9"
+                    android:layout_width="131dp"
+                    android:layout_height="66dp"
+                    android:text="Titulo receta" />
+            </LinearLayout>
+
+        </androidx.gridlayout.widget.GridLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.recetasapp.ui.notifications
+package com.example.recetasapp.ui.add
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.recetasapp.databinding.FragmentAddBinding
-import com.example.recetasapp.databinding.FragmentNotificationsBinding
 
 class AddFragment : Fragment() {
 
@@ -29,7 +28,7 @@ class AddFragment : Fragment() {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textAdd
+        val textView: TextView = binding.textDashboard
         addViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
