@@ -4,39 +4,53 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.recetasapp.databinding.FragmentHomeBinding
+import androidx.fragment.app.activityViewModels
+import androidx.gridlayout.widget.GridLayout
+import com.bumptech.glide.Glide
+import com.example.recetasapp.R
+import com.example.recetasapp.viewmodel.RecetaViewModel
+import com.example.recetasapp.data.database.Receta
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private val recetaViewModel: RecetaViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val gridLayout = root.findViewById<GridLayout>(R.id.gridLayout)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        recetaViewModel.todaslasRecetas().observe(viewLifecycleOwner) { recetas: List<Receta> ->
+            gridLayout.removeAllViews()
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            // Agrega cada receta al GridLayout
+            recetas.forEach { receta ->
+                val itemView = createRecipeView(receta, inflater, gridLayout)
+                gridLayout.addView(itemView)
+            }
         }
+
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun createRecipeView(receta: Receta, inflater: LayoutInflater, parent: ViewGroup): View {
+        val view = inflater.inflate(R.layout.item_receta, parent, false)
+
+        val textTitle = view.findViewById<TextView>(R.id.textTitleRecipe)
+        val imageView = view.findViewById<ImageView>(R.id.textImage)
+
+        textTitle.text = receta.titulo
+
+        // Cargar la imagen desde la URI usando Glide
+        Glide.with(imageView.context)
+            .load(receta.imagenes) // URI desde la base de datos
+            .placeholder(R.drawable.ic_launcher_foreground) // Imagen temporal mientras se carga
+            .error(R.drawable.ic_launcher_background) // Imagen en caso de error
+            .into(imageView)
+        return view
     }
 }

@@ -1,30 +1,29 @@
-package com.example.recetasapp.ui.home
+package com.example.recetasapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.recetasapp.data.database.Receta
 import com.example.recetasapp.data.repository.RecetaRepository
 import kotlinx.coroutines.launch
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class RecetaViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: RecetaRepository
-    val todasLasRecetas: LiveData<List<Receta>>
 
     init {
+        // Inicializa el repositorio con el DAO de Room
         val recetaDao = com.example.recetasapp.data.database.RecetaDatabase
             .getDatabase(application)
             .recetaDao()
         repository = RecetaRepository(recetaDao)
-        todasLasRecetas = repository.obtenerRecetas()
     }
 
-    // Método para añadir recetas
+    // Función para añadir una receta
     fun añadirReceta(receta: Receta) {
         viewModelScope.launch {
             repository.insertar(receta)
         }
     }
+   fun todaslasRecetas() = repository.obtenerRecetas()
 }
