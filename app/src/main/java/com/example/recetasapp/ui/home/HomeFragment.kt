@@ -22,8 +22,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+        recetaViewModel.todaslasRecetas()
         val gridLayout = root.findViewById<GridLayout>(R.id.gridLayout)
-
         recetaViewModel.todaslasRecetas().observe(viewLifecycleOwner) { recetas: List<Receta> ->
             gridLayout.removeAllViews()
 
