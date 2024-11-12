@@ -15,13 +15,12 @@
         android:scaleType="centerInside" />
 
 
-
     <TextView
         android:id="@+id/textTitleRecipe"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:text="Título de la receta"
-        android:textColor="#313030"
+        android:textColor="#262626"
         android:textSize="16sp" />
 </LinearLayout>

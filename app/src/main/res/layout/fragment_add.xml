@@ -6,19 +6,32 @@
     tools:context=".ui.add.AddFragment">
 
 
-    <TextView
-        android:id="@+id/textViewImagePreview"
-        android:layout_width="108dp"
-        android:layout_height="89dp"
-        android:text="Imagen seleccionada:"
+    <ImageView
+        android:id="@+id/imageViewPreview"
+        android:layout_width="117dp"
+        android:layout_height="94dp"
         android:textColor="#313030"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.809"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
+        app:layout_constraintVertical_bias="0.733" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
 
     <Button
         android:id="@+id/buttonAddImage"
@@ -30,24 +43,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
-
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_500"
-        android:text="Guardar"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.827" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <TextView
         android:id="@+id/textAddRecipe"
@@ -55,7 +54,7 @@
         android:layout_height="54dp"
         android:fontFamily="@font/belgiano"
         android:text="AÑADIR RECETA"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_700"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,22 +71,24 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutTitle"
-        android:layout_width="344dp"
-        android:layout_height="47dp"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
         android:hint="Título"
-        app:boxBackgroundColor="@android:color/white"
+        app:boxBackgroundColor="#00FFFFFF"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/gold"
         app:hintEnabled="true"
+        app:hintTextColor="@color/gold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209"
+        app:layout_constraintVertical_bias="0.158"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -100,51 +101,55 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutIngredients"
-        android:layout_width="339dp"
-        android:layout_height="116dp"
+        android:layout_width="330dp"
+        android:layout_height="129dp"
         android:hint="Ingredientes"
-        app:boxBackgroundColor="@android:color/white"
+        app:boxBackgroundColor="#00FFFFFF"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/gold"
         app:hintEnabled="true"
+        app:hintTextColor="@color/gold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334">
+        app:layout_constraintVertical_bias="0.29">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextIngredients"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="textMultiLine"
             android:minLines="4"
             android:padding="8dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutInstructions"
-        android:layout_width="338dp"
+        android:layout_width="330dp"
         android:layout_height="123dp"
         android:hint="Instrucciones"
-        app:boxBackgroundColor="@android:color/white"
+        app:boxBackgroundColor="#00FFFFFF"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
+        app:boxStrokeColor="@color/gold"
         app:hintEnabled="true"
+        app:hintTextColor="@color/gold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528">
+        app:layout_constraintVertical_bias="0.529">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextInstructions"

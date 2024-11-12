@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -14,6 +15,10 @@ import com.example.recetasapp.R
 import com.example.recetasapp.data.database.Receta
 import com.example.recetasapp.viewmodel.RecetaViewModel
 import com.google.android.material.textfield.TextInputEditText
+
+
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class AddFragment : Fragment() {
 
@@ -24,7 +29,11 @@ class AddFragment : Fragment() {
     private val selectImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
             selectedImageUri = it
-            requireView().findViewById<TextView>(R.id.textViewImagePreview).text = "Imagen seleccionada: $it"
+            val imageView = requireView().findViewById<ImageView>(R.id.imageViewPreview)
+            Glide.with(this)
+                .load(it)
+                .transform(RoundedCorners(16)) // Ajusta el valor para cambiar el radio de las esquinas
+                .into(imageView)
         }
     }
 
@@ -62,10 +71,10 @@ class AddFragment : Fragment() {
                 editTextTitle.text?.clear()
                 editTextIngredients.text?.clear()
                 editTextInstructions.text?.clear()
-                requireView().findViewById<TextView>(R.id.textViewImagePreview).text = "Imagen seleccionada:"
+                requireView().findViewById<ImageView>(R.id.imageViewPreview).setImageURI(null)
                 selectedImageUri = null
             } else {
-                requireView().findViewById<TextView>(R.id.textViewImagePreview).text = "Por favor, complet todos los campos"
+                requireView().findViewById<TextView>(R.id.imageViewPreview).text = "Por favor, complet todos los campos"
             }
         }
 

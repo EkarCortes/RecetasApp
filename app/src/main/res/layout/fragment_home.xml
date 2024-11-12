@@ -21,7 +21,7 @@
         android:layout_height="63dp"
         android:fontFamily="@font/belgiano"
         android:text="MIS RECETAS"
-        android:textColor="#313030"
+        android:textColor="@color/purple_700"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
