@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:orientation="horizontal"
+    android:layout_height="67dp"
     android:layout_margin="4dp"
-    android:background="@drawable/linear_layout">
+    android:background="@drawable/linear_layout"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/textImage"
         android:layout_width="85dp"
-        android:layout_height="66dp"
+        android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
-        android:contentDescription="Imagen de la receta"
-        android:src="@drawable/ic_dashboard_black_24dp" />
+        android:background="@drawable/image_layout"
+        android:scaleType="centerInside" />
+
+
 
     <TextView
         android:id="@+id/textTitleRecipe"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:text="Título de la receta"
-        android:textSize="16sp"
-        android:textColor="#313030" />
+        android:textColor="#313030"
+        android:textSize="16sp" />
 </LinearLayout>
