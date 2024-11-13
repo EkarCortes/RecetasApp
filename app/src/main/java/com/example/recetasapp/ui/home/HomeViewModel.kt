@@ -21,10 +21,4 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         todasLasRecetas = repository.obtenerRecetas()
     }
 
-    // Método para añadir recetas
-    fun añadirReceta(receta: Receta) {
-        viewModelScope.launch {
-            repository.insertar(receta)
-        }
     }
-}

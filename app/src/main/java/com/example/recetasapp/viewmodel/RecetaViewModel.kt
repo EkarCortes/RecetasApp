@@ -27,4 +27,8 @@ class RecetaViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
    fun todaslasRecetas() = repository.obtenerRecetas()
+    fun getRecetaById(recetaId: Int): LiveData<Receta> {
+        return repository.getRecetaById(recetaId)
+    }
+
 }

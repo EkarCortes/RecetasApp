@@ -19,5 +19,5 @@ interface RecetaDao {
     suspend fun deleteReceta(receta: Receta)
 
     @Query("SELECT * FROM recetas WHERE id = :id")
-    suspend fun getRecetaById(id: Int): Receta
+    fun getRecetaById(id: Int): LiveData<Receta>
 }

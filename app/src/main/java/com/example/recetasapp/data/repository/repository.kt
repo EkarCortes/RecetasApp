@@ -12,5 +12,8 @@ class RecetaRepository(private val recetaDao: RecetaDao) {
     fun obtenerRecetas(): LiveData<List<Receta>> {
         return recetaDao.getAllRecetas()
     }
+    fun getRecetaById(recetaId: Int): LiveData<Receta> {
+        return recetaDao.getRecetaById(recetaId)
+    }
 
 }
