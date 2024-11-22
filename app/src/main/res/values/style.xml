@@ -1,0 +1,12 @@
+<resources>
+    <!-- Other styles -->
+
+    <style name="CurvedImageStyle">
+        <item name="shapeAppearance">@style/CurvedImageShape</item>
+    </style>
+
+    <style name="CurvedImageShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">161dp</item> <!-- Ajusta el tamaño según tus necesidades -->
+    </style>
+</resources>

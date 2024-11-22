@@ -10,7 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.recetasapp.R
 import com.example.recetasapp.ui.adapters.ImageCarouselAdapter
+import com.example.recetasapp.ui.adapters.RecipePagerAdapter
 import com.example.recetasapp.viewmodel.RecetaViewModel
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class RecipeDetailActivity : AppCompatActivity() {
 
@@ -39,18 +42,33 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         recetaViewModel = ViewModelProvider(this).get(RecetaViewModel::class.java)
 
-        val textIngredients = findViewById<TextView>(R.id.TextIngredients)
-        val textInstructions = findViewById<TextView>(R.id.TextInstructions)
+        val recipeTitleTextView = findViewById<TextView>(R.id.textRecipe)
         val carouselView = findViewById<ViewPager2>(R.id.carouselView)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
+        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 
 
         recetaViewModel.getRecetaById(recetaId).observe(this) { receta ->
-            textIngredients.text = receta.ingredientes
-            textInstructions.text = receta.pasos
+            val title = receta.titulo
+            val ingredients = receta.ingredientes
+            val instructions = receta.pasos
 
+            // Set the recipe title
+            recipeTitleTextView.text = title
             val imagenesUris = receta.imagenes.split(",")
             // separamos las imágenes por comas ya que es la url de las imágenes
             carouselView.adapter = ImageCarouselAdapter(imagenesUris)
+
+            val adapter = RecipePagerAdapter(this, ingredients, instructions)
+            viewPager.adapter = adapter
+
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = when (position) {
+                    0 -> "Ingredientes"
+                    1 -> "Instrucciones"
+                    else -> null
+                }
+            }.attach()
         }
     }
 }
