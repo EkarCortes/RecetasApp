@@ -53,7 +53,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             val ingredients = receta.ingredientes
             val instructions = receta.pasos
 
-            // Set the recipe title
+
             recipeTitleTextView.text = title
             val imagenesUris = receta.imagenes.split(",")
             // separamos las imágenes por comas ya que es la url de las imágenes
